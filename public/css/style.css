@@ -1,0 +1,46 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	bottom: 0;
+	font-family: 'Lato', sans-serif;
+	background-color: #2C2F33;
+	color: #fff;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 30vh;
+}
+
+header h1 {
+	font-size: 46px;
+	margin: 0;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 60vh;
+}
+
+main iframe {
+	border: none;
+	width: 50%;
+	height: 100%;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 10vh;
+}

@@ -1,0 +1,2 @@
+#  Si une url requise correspond au répertoire concerné, et si auncun Directoryindex(ex: index.html) n'est défini dans ce répertoire, le module va renvoyer un listing formaté du répertoire.
+Options -Indexes
