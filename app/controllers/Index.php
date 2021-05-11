@@ -41,10 +41,10 @@
     
     // URL ROOT
     define('URL_ROOT', 'http://'.$"."_SERVER['HTTP_HOST'].str_replace('public/index.php', '', $"."_SERVER['SCRIPT_NAME']));
-    //define('URL_ROOT', 'https://".trim($_POST['DB_NAME']).".com');
+    //define('URL_ROOT', 'https://".trim($_POST['SITE_NAME']).".com');
     
     // Nom du site
-    define('SITE_NAME', '".trim($_POST['DB_NAME'])."');");
+    define('SITE_NAME', '".trim($_POST['SITE_NAME'])."');");
 
                 file_put_contents("../app/views/index.php", "<?php
 	require APP_ROOT . '/views/inc/head.php';
