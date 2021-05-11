@@ -10,8 +10,6 @@ A ready-to-use Model View Controller template in PHP
 
 ### What do I need to modify for my template to work?
 
-> On `My-Project-Name/public/.htaccess` modify =ProjectFolderName= to the name of your project folder.
-
 > Edit `My-Project-Name/app/config/config.php` to configure the site (Database, site name)
 
 # What are the files for?
