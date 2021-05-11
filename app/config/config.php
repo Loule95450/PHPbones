@@ -14,7 +14,7 @@
 	define('APP_ROOT', dirname(dirname(__FILE__)));
 	
 	// URL ROOT (Liens dynamiques)
-    define('URL_ROOT', 'http://localhost/=ProjectFolderName=');
+    define('URL_ROOT', "http://".$_SERVER['HTTP_HOST'].str_replace("public/index.php", "", $_SERVER['SCRIPT_NAME']));
     //define('URL_ROOT', 'https://MyWebsite.com');
 
 	// Nom du site

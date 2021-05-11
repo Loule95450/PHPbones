@@ -14,7 +14,6 @@
     <main>
         <iframe src="https://hackmd.io/@OJ4eGhBMSO2CcNq6fuEz9g/rJsVIgXOO"></iframe>
     </main>
-
     <?php
         require APP_ROOT . '/views/inc/footer.php';
     ?>
