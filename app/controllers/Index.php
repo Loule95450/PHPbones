@@ -100,6 +100,7 @@
 		}
 	}
 ");
+                header('Location: '.URL_ROOT);
 			}
 
 			$this->render('index', $data);
