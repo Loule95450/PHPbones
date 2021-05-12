@@ -44,19 +44,13 @@ main form input {
 	padding: 0.5em 1em;
 	border: none;
 	border-bottom: 1px SOLID #000;
-	border-radius: 30px;
 	background-color: transparent;
 	outline: none;
 }
 
-main form input::placeholder {
+main form input::placeholder, main form input {
 	text-align: center;
-}
-
-main iframe {
-	border: none;
-	width: 50%;
-	height: 100%;
+	color: #F7F7F7;
 }
 
 footer {
