@@ -24,6 +24,10 @@
         </form>
 
         <iframe src="https://hackmd.io/@OJ4eGhBMSO2CcNq6fuEz9g/rJsVIgXOO"></iframe>
+
+        <?php
+echo $_SERVER['HTTPS'];
+?>
     </main>
     <?php
         require APP_ROOT . '/views/inc/footer.php';
