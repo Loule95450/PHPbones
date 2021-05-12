@@ -1,6 +1,8 @@
 # PHP-MVC-Template
 A ready-to-use Model View Controller template in PHP
 
+# [Use this repo as a template]("https://github.com/Loule95450/PHP-MVC-Template/generate")! (Or [clone]("x-github-client://openRepo/https://github.com/Loule95450/PHP-MVC-Template") it)
+
 # Start to configure your MVC file
 
 `Everything you need to modify has "=" in prefix and sufix`
@@ -10,7 +12,9 @@ A ready-to-use Model View Controller template in PHP
 
 ### What do I need to modify for my template to work?
 
-> Edit `My-Project-Name/app/config/config.php` to configure the site (Database, site name)
+> N-O-T-H-I-N-G. You just have to move the template to your HTDOCS folder. And on your browser go to your [localhost]("http://localhost/")
+
+> After configuration you can add more information in `My-Project-Name/app/config/config.php` (Database, site name)
 
 # What are the files for?
 
