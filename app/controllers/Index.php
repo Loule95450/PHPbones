@@ -44,7 +44,11 @@
     //define('URL_ROOT', 'https://".trim($_POST['SITE_NAME']).".com');
     
     // Nom du site
-    define('SITE_NAME', '".trim($_POST['SITE_NAME'])."');");
+    define('SITE_NAME', '".trim($_POST['SITE_NAME'])."');
+    
+	//Meta
+    define('CARD_DESCRIPTION', '".trim($_POST['CARD_DESCRIPTION'])."');
+    define('CARD_IMAGE', 'https://');");
 
                 file_put_contents("../app/views/index.php", "<?php
 	require APP_ROOT . '/views/inc/head.php';

@@ -19,3 +19,7 @@
 
 	// Nom du site
 	define('SITE_NAME', '=WebsiteName=');
+
+	//Meta
+    define('CARD_DESCRIPTION', '=WebsiteDescription=');
+    define('CARD_IMAGE', '=WebsiteIMG=');
