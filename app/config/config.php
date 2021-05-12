@@ -14,7 +14,7 @@
 	define('APP_ROOT', dirname(dirname(__FILE__)));
 	
 	// URL ROOT (Liens dynamiques)
-    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') define('URL_ROOT', "https://".$_SERVER['HTTP_HOST'].str_replace("public/index.php", "", $_SERVER['SCRIPT_NAME'])); else define('URL_ROOT', "http://".$_SERVER['HTTP_HOST'].str_replace("public/index.php", "", $_SERVER['SCRIPT_NAME']));
+    if(str_contains($_SERVER['HTTP_HOST'], "localhost") || str_contains($_SERVER['HTTP_HOST'], "127.0.0.1")) define('URL_ROOT', "http://".$_SERVER['HTTP_HOST'].str_replace("public/index.php", "", $_SERVER['SCRIPT_NAME'])); else define('URL_ROOT', "https://".$_SERVER['HTTP_HOST'].str_replace("public/index.php", "", $_SERVER['SCRIPT_NAME']));
     //define('URL_ROOT', 'https://MyWebsite.com');
 
 	// Nom du site
