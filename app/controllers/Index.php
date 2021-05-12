@@ -18,7 +18,8 @@
 		public function index() {
 			$data = [
                 'headTitle' => 'Welcome !',
-				'title' => 'Hi you ! 😏'
+				'title' => 'Hi you ! 😏',
+                'cssFile' => 'index'
 			];
 
 			if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -71,7 +72,7 @@
     ?>
 </body>");
 
-                file_put_contents("css/style.css", "html, body {
+                file_put_contents("css/global.style.css", "html, body {
 	margin: 0;
 	font-family: 'Lato', sans-serif;
 	color: #OOO;
@@ -97,7 +98,8 @@
 		public function index() {
 			$"."data = [
                 'headTitle' => 'Welcome !',
-				'title' => 'Hi you ! 😏'
+				'title' => 'Hi you ! 😏',
+                'cssFile' => 'index'
 			];
 			
 			$"."this->render('index', $"."data);

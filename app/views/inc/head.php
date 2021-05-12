@@ -27,7 +27,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/normalize.css">
-    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/style.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/global.style.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/<?= $data['cssFile'] ?>.style.css">
 
     <!-- Load FontAwsome and Jquery -->
     <?php echo file_get_contents('https://headswift.com/cdn/0.1.0/?frameworks=headswift-stats,font-awesome,jquery&version=0.1.0,5.15.3,3.6.0'); ?>
