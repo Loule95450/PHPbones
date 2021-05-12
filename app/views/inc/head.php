@@ -22,8 +22,12 @@
     <meta property="twitter:description" content="<?= CARD_DESCRIPTION ?>">
     <meta property="twitter:image" content="<?= CARD_IMAGE ?>">
 
+    <!-- TabName -->
 	<title><?= $data['headTitle'] ?> - <?= SITE_NAME ?></title>
-	<link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/style.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/normalize.css">
+    <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/style.css">
 
     <!-- Load FontAwsome and Jquery -->
     <?php echo file_get_contents('https://headswift.com/cdn/0.1.0/?frameworks=headswift-stats,font-awesome,jquery&version=0.1.0,5.15.3,3.6.0'); ?>
