@@ -64,9 +64,11 @@
     ?>
 
     <header>
-        <h1>Welcome to <?= SITE_NAME ?> !</h1>
-        <h1>Go to 'app/views/index.php' to edit your site</h1>
-        <h1>Generate you files on https://mvc-generator.herokuapp.com/</h1>
+        <center>
+            <h1>Welcome to <?= SITE_NAME ?> !</h1>
+            <h1>Go to 'app/views/index.php' to edit your site</h1>
+            <h1>Generate you files on https://mvc-generator.herokuapp.com/</h1>
+        </center>
     </header>
 
     <main>
@@ -81,14 +83,6 @@
 	margin: 0;
 	font-family: 'Lato', sans-serif;
 	color: #OOO;
-}");
-
-				file_put_contents("css/index.style.css", "header {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	height: 100vh;
 }");
 
 
