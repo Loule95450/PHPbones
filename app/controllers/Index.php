@@ -41,7 +41,11 @@
     define('APP_ROOT', dirname(dirname(__FILE__)));
     
     // URL ROOT
-    define('URL_ROOT', 'http://'.$"."_SERVER['HTTP_HOST'].str_replace('public/index.php', '', $"."_SERVER['SCRIPT_NAME']));
+    if(strpos($"."_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($"."_SERVER['HTTP_HOST'], '127.0.0.1') !== false){
+        define('URL_ROOT', 'http://'.$"."_SERVER['HTTP_HOST'].str_replace('/public/index.php', '', $"."_SERVER['SCRIPT_NAME']));
+    } else {
+        define('URL_ROOT', 'https://'.$"."_SERVER['HTTP_HOST'].str_replace('/public/index.php', '', $"."_SERVER['SCRIPT_NAME']));
+    }
     //define('URL_ROOT', 'https://".trim($_POST['SITE_NAME']).".com');
     
     // Nom du site
@@ -62,6 +66,7 @@
     <header>
         <h1>Welcome to <?= SITE_NAME ?> !</h1>
         <h1>Go to 'app/views/index.php' to edit your site</h1>
+        <h1>Generate you files on https://mvc-generator.herokuapp.com/</h1>
     </header>
 
     <main>
@@ -76,6 +81,13 @@
 	margin: 0;
 	font-family: 'Lato', sans-serif;
 	color: #OOO;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }");
 
                 file_put_contents("../app/controllers/Index.php", "<?php
