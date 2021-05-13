@@ -81,14 +81,16 @@
 	margin: 0;
 	font-family: 'Lato', sans-serif;
 	color: #OOO;
-}
-
-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
 }");
+
+				file_put_contents("css/index.style.css", "header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+}");
+
 
                 file_put_contents("../app/controllers/Index.php", "<?php
 	/**
