@@ -16,7 +16,7 @@
 			$url = $this->getUrl();
 			
 			// Rechercher dans le BLL(Business Logic Layer) pour la première valeur
-			if(isset($url[0]) && file_exists('../app/controllers/' . ucwords($url[0]). '.php')){
+			if(isset($url[0]) && file_exists('../app/controllers/' . ucwords($url[0]). '.class.php')){
 				// S’il existe, défini comme controller
 				$this->currentController = ucwords($url[0]);
 				// Unset l'index 0
@@ -24,7 +24,7 @@
 			}
 			
 			// Exige le contrôleur
-			require_once '../app/controllers/'. $this->currentController . '.php';
+			require_once '../app/controllers/'. $this->currentController . '.class.php';
 			
 			// Instancie le controller
 			$this->currentController = new $this->currentController;
