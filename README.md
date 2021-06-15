@@ -5,6 +5,7 @@ A ready-to-use Model View Controller template in PHP
 
 # Start to configure your MVC file
 
+`After downloading the repo. [Open it](http://localhost/PHPbones)`
 `Everything you need to modify has "=" in prefix and sufix`
 
 ### If you have a recent IDE : 
@@ -15,6 +16,9 @@ A ready-to-use Model View Controller template in PHP
 > N-O-T-H-I-N-G. You just have to move the template to your HTDOCS folder. And on your browser go to your [localhost](http://localhost/)
 
 > After configuration you can add more information in `My-Project-Name/app/config/config.php` (Database, site name)
+
+### How to add pages?
+Open the terminal. Then type the command `php generate.php help`.
 
 # What are the files for?
 
