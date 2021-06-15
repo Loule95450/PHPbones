@@ -27,7 +27,22 @@
 			{
 				require_once '../app/views/' . $view . '.php';
 			} else {
-				die("Cette vue n'existe pas !!");
+				$this->renderError(424);
 			}
 		}
+
+        /**
+         * Chargement dynamique des pages erreurs
+         * @param number $codeError
+         * @param string $titleError
+         */
+        public function renderError($codeError = 520, $titleError = "Something has gone wrong")
+        {
+            $data = [
+                'headTitle' => $titleError,
+                'cssFile' => 'errors',
+                "errorCode" => $codeError
+            ];
+            die($this->render('errors', $data));
+        }
 	}

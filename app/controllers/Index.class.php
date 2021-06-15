@@ -92,7 +92,7 @@
 }");
 
 
-                file_put_contents("../app/controllers/Index.php", "<?php
+                file_put_contents("../app/controllers/Index.class.php", "<?php
 	/**
 	 * Class Index
 	 */
