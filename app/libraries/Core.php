@@ -21,7 +21,10 @@
 				$this->currentController = ucwords($url[0]);
 				// Unset l'index 0
 				unset($url[0]);
-			}
+			} else if(isset($url[0])) {
+                $data = ['headTitle' => 'Not found', 'cssFile' => 'errors', "errorCode" => 404 ];
+                die(require_once("../app/views/errors.php"));
+            }
 			
 			// Exige le contrôleur
 			require_once '../app/controllers/'. $this->currentController . '.class.php';
