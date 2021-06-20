@@ -23,7 +23,7 @@
     <meta property="twitter:image" content="<?= CARD_IMAGE ?>">
 
     <!-- TabName -->
-    <?php if(isset($data['headTitle'])): ?><title><?= $data['headTitle'] ?> - <?= SITE_NAME ?></title><?php else: ?><title><?= SITE_NAME ?></title><?php endif; ?>
+    <title><?= isset($data['headTitle']) ? $data["headTitle"] . " - " .  SITE_NAME : SITE_NAME ?></title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="<?= URL_ROOT ?>/public/css/normalize.css">
