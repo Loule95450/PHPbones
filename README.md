@@ -1,6 +1,13 @@
 # PHP-MVC-Template
 A ready-to-use Model View Controller template in PHP
 
+## SonarCloud Review
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Loule95450_PHPbones&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=Loule95450_PHPbones)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Loule95450_PHPbones&metric=bugs)](https://sonarcloud.io/dashboard?id=Loule95450_PHPbones)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Loule95450_PHPbones&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=Loule95450_PHPbones)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Loule95450_PHPbones&metric=security_rating)](https://sonarcloud.io/dashboard?id=Loule95450_PHPbones)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Loule95450_PHPbones&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Loule95450_PHPbones)
+
 # [Use this repo as a template](https://github.com/Loule95450/PHP-MVC-Template/generate)! (Or [clone](x-github-client://openRepo/https://github.com/Loule95450/PHP-MVC-Template) it)
 
 # Start to configure your MVC file
