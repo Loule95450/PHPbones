@@ -13,7 +13,7 @@ class Database
     private string $dbHost = DB_HOST;
     private string $dbUser = DB_USER;
     private string $dbPass = DB_PASS;
-    private string $dbName = DB_NAME;
+    public string $dbName = DB_NAME;
 
     /**
      * Instance de PDO
@@ -121,7 +121,7 @@ class Database
         $this->query($sql);
         if (isset($data->where)) {
             foreach ($data->where as $key => $value) {
-                $this->statement->bindValue(':' . $key, $value);
+                $this->statement->bindValue(':' . $key, $this->encrypt($value));
             }
         }
         $this->statement->execute();
@@ -165,7 +165,7 @@ class Database
         $this->query($sql);
         if (isset($data->values)) {
             foreach ($data->values as $key => $value) {
-                $this->statement->bindValue(':' . $key, $value);
+                $this->statement->bindValue(':' . $key, $this->encrypt($value));
             }
         }
         $this->statement->execute();
@@ -209,12 +209,12 @@ class Database
         $this->query($sql);
         if (isset($data->values)) {
             foreach ($data->values as $key => $value) {
-                $this->statement->bindValue(':' . $key . 'value', $value);
+                $this->statement->bindValue(':' . $key . 'value', openssl_encrypt($value, DB_CIPHER_ALGO, DB_CRYPT_KEY));
             }
         }
         if (isset($data->where)) {
             foreach ($data->where as $key => $value) {
-                $this->statement->bindValue(':' . $key . 'where', $value);
+                $this->statement->bindValue(':' . $key . 'where', openssl_encrypt($value, DB_CIPHER_ALGO, DB_CRYPT_KEY));
             }
         }
         $this->statement->execute();
@@ -248,7 +248,7 @@ class Database
         $this->query($sql);
         if (isset($data->where)) {
             foreach ($data->where as $key => $value) {
-                $this->statement->bindValue(':' . $key, $value);
+                $this->statement->bindValue(':' . $key, $this->encrypt($value));
             }
         }
         $this->statement->execute();
@@ -292,6 +292,39 @@ class Database
     }
 
     /**
+     * Decrypt the data
+     *
+     * @param $encrypted
+     * @return string
+     */
+    public function decrypt($encrypted): string
+    {
+        if (DB_CRYPT) {
+            $decrypted = openssl_decrypt($encrypted, DB_CIPHER_ALGO, DB_CRYPT_KEY);
+            return !$decrypted ? $encrypted : $decrypted;
+        } else {
+            return $encrypted;
+        }
+    }
+
+    /**
+     * Encrypt the data
+     *
+     * @param $decrypted
+     * @return string
+     */
+    public function encrypt($decrypted): string
+    {
+        if (DB_CRYPT) {
+            $encrypted = openssl_encrypt($decrypted, DB_CIPHER_ALGO, DB_CRYPT_KEY);
+            return !$encrypted ? $decrypted : $encrypted;
+        } else {
+            return $decrypted;
+        }
+    }
+
+
+    /**
      * Get the last inserted id
      *
      * @return array|false
@@ -299,7 +332,16 @@ class Database
     public function fetchAll()
     {
         $this->execute();
-        return $this->statement->fetchAll(PDO::FETCH_OBJ);
+        $response = $this->statement->fetchAll();
+
+        // Decrypt the data
+        foreach ($response as $key => $value) {
+            foreach ($value as $key2 => $value2) {
+                $response[$key][$key2] = $this->decrypt($value2);
+            }
+        }
+
+        return $response;
     }
 
     /**
@@ -310,7 +352,14 @@ class Database
     public function fetch()
     {
         $this->execute();
-        return $this->statement->fetch(PDO::FETCH_OBJ);
+        $response = $this->statement->fetch();
+
+        // Decrypt the data
+        foreach ($response as $key => $value) {
+            $response[$key] = $this->decrypt($value);
+        }
+
+        return $response;
     }
 
     /**

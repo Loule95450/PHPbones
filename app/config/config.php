@@ -5,6 +5,10 @@
     define('DB_PASS', '=DataBasePassword=');
     define('DB_NAME', '=DataBaseName=');
 
+    define('DB_CRYPT', '=DataBaseCrypt=');
+    define('DB_CRYPT_KEY', '=DataBaseCryptKey=');
+    define('DB_CIPHER_ALGO', '=DataBaseCipherAlgo=');
+
     //define('DB_HOST', 'localhost');
     //define('DB_USER', 'root');
     //define('DB_PASS', '');

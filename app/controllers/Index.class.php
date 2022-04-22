@@ -1,18 +1,35 @@
 <?php
-	/**
-	 * Class Index
-	 */
-	class Index extends Controller {
-		/**
-		 * Index constructor.
-		 */
-		public function __construct() {
-		    // Import SQL commands
+/**
+ * Class Index
+ */
+function generate_string($strength = 100): string
+{
 
-			//$this->userModel = $this->model('User');
-		}
-		
-		/**
+    $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    $input_length = strlen($permitted_chars);
+    $random_string = '';
+    for ($i = 0; $i < $strength; $i++) {
+        $random_character = $permitted_chars[mt_rand(0, $input_length - 1)];
+        $random_string .= $random_character;
+    }
+
+    return $random_string;
+}
+
+class Index extends Controller
+{
+    /**
+     * Index constructor.
+     */
+    public function __construct()
+    {
+        // Import SQL commands
+
+        //$this->userModel = $this->model('User');
+    }
+
+    /**
 		 * views/index.php
 		 */
 		public function index() {
@@ -27,10 +44,14 @@
 
 				file_put_contents("../app/config/config.php", "<?php
     // Database Settings
-    define('DB_HOST', '".trim($_POST['DB_HOST'])."');
-    define('DB_USER', '".trim($_POST['DB_USER'])."');
-    define('DB_PASS', '".trim($_POST['DB_PASS'])."');
-    define('DB_NAME', '".trim($_POST['DB_NAME'])."');
+    define('DB_HOST', '" . trim($_POST['DB_HOST']) . "');
+    define('DB_USER', '" . trim($_POST['DB_USER']) . "');
+    define('DB_PASS', '" . trim($_POST['DB_PASS']) . "');
+    define('DB_NAME', '" . trim($_POST['DB_NAME']) . "');
+    
+    define('DB_CRYPT', true);
+    define('DB_CRYPT_KEY', '" . generate_string() . "');
+    define('DB_CIPHER_ALGO', 'AES-128-ECB');
     
     //define('DB_HOST', 'localhost');
     //define('DB_USER', 'root');
@@ -103,7 +124,7 @@
 		public function __construct() {
 		    // Import SQL commands
 
-			//$"."this->userModel = $"."this->model('User');
+			//$"."this->indexModel = $"."this->loadModel('IndexModel');
 		}
 		
 		/**
