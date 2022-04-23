@@ -121,7 +121,7 @@ class Database
         $this->query($sql);
         if (isset($data->where)) {
             foreach ($data->where as $key => $value) {
-                $this->statement->bindValue(':' . $key, $this->encrypt($value));
+                $this->statement->bindValue(':' . $key, $this->encrypt($value, $key));
             }
         }
         $this->statement->execute();
@@ -165,7 +165,7 @@ class Database
         $this->query($sql);
         if (isset($data->values)) {
             foreach ($data->values as $key => $value) {
-                $this->statement->bindValue(':' . $key, $this->encrypt($value));
+                $this->statement->bindValue(':' . $key, $this->encrypt($value, $key));
             }
         }
         $this->statement->execute();
@@ -209,12 +209,12 @@ class Database
         $this->query($sql);
         if (isset($data->values)) {
             foreach ($data->values as $key => $value) {
-                $this->statement->bindValue(':' . $key . 'value', openssl_encrypt($value, DB_CIPHER_ALGO, DB_CRYPT_KEY));
+                $this->statement->bindValue(':' . $key . 'value', $this->encrypt($value, $key));
             }
         }
         if (isset($data->where)) {
             foreach ($data->where as $key => $value) {
-                $this->statement->bindValue(':' . $key . 'where', openssl_encrypt($value, DB_CIPHER_ALGO, DB_CRYPT_KEY));
+                $this->statement->bindValue(':' . $key . 'where', $this->encrypt($value, $key));
             }
         }
         $this->statement->execute();
@@ -248,7 +248,7 @@ class Database
         $this->query($sql);
         if (isset($data->where)) {
             foreach ($data->where as $key => $value) {
-                $this->statement->bindValue(':' . $key, $this->encrypt($value));
+                $this->statement->bindValue(':' . $key, $this->encrypt($value, $key));
             }
         }
         $this->statement->execute();
@@ -297,9 +297,9 @@ class Database
      * Decrypt the data
      *
      * @param $encrypted
-     * @return string
+     * @return mixed|string
      */
-    public function decrypt($encrypted): string
+    public function decrypt($encrypted)
     {
         if (DB_CRYPT) {
             $decrypted = openssl_decrypt($encrypted, DB_CIPHER_ALGO, DB_CRYPT_KEY);
@@ -313,16 +313,16 @@ class Database
      * Encrypt the data
      *
      * @param $decrypted
-     * @return string
+     * @return mixed|string
      */
-    public function encrypt($decrypted): string
+    public function encrypt($decrypted, $column = null)
     {
-        if (DB_CRYPT) {
+        if ((!strpos($column, 'id') || !strpos($column, 'nocrypt')) && DB_CRYPT) {
             $encrypted = openssl_encrypt($decrypted, DB_CIPHER_ALGO, DB_CRYPT_KEY);
             return !$encrypted ? $decrypted : $encrypted;
-        } else {
-            return $decrypted;
         }
+
+        return $decrypted;
     }
 
 
