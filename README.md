@@ -37,3 +37,9 @@ Open the terminal. Then type the command `php generate.php help`.
 
 ### Files for Back-end delelopment
 > `My-Project-Name/app/controllers`
+
+# Collaborators
+
+<a href="https://github.com/Loule95450/PHPbones/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Loule95450/PHPbones" />
+</a>
