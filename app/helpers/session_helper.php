@@ -1,8 +1,11 @@
 <?php
+	/* Starting a session. */
 	session_start();
+
 	/**
-	 * @return bool
-	 * Check si l'utilisateur est connecté via le cookie dee seession
+	 * If the user_id session variable is set, return true, otherwise return false
+	 *
+	 * @return a boolean value.
 	 */
 	function isLoggedIn() {
 		if (isset($_SESSION['user_id'])) {

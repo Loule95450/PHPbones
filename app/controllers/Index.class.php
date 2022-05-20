@@ -2,6 +2,14 @@
 /**
  * Class Index
  */
+
+/**
+ * It generates a random string of characters.
+ *
+ * @param strength The length of the string to be generated.
+ *
+ * @return string A random string of characters.
+ */
 function generate_string($strength = 100): string
 {
 
@@ -43,25 +51,21 @@ class Index extends Controller
 				$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 				file_put_contents("../app/config/config.php", "<?php
-    // Database Settings
+    /* It's defining the database host, user, password, and name. */
     define('DB_HOST', '" . trim($_POST['DB_HOST']) . "');
     define('DB_USER', '" . trim($_POST['DB_USER']) . "');
     define('DB_PASS', '" . trim($_POST['DB_PASS']) . "');
     define('DB_NAME', '" . trim($_POST['DB_NAME']) . "');
     
+    /* It's defining the database encryption. */
     define('DB_CRYPT', true);
     define('DB_CRYPT_KEY', '" . generate_string() . "');
     define('DB_CIPHER_ALGO', 'AES-128-ECB');
     
-    //define('DB_HOST', 'localhost');
-    //define('DB_USER', 'root');
-    //define('DB_PASS', '');
-    //define('DB_NAME', 'MyDataBase');
-    
-    // APP ROOT
+    /* It's defining the root of the application. */
     define('APP_ROOT', dirname(dirname(__FILE__)));
     
-    // URL ROOT
+    /* It's defining the root url of the website. */
     if(strpos($"."_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($"."_SERVER['HTTP_HOST'], '127.0.0.1') !== false){
         define('URL_ROOT', 'http://'.$"."_SERVER['HTTP_HOST'].str_replace('/public/index.php', '', $"."_SERVER['SCRIPT_NAME']));
     } else {
@@ -69,10 +73,10 @@ class Index extends Controller
     }
     //define('URL_ROOT', 'https://".trim($_POST['SITE_NAME']).".com');
     
-    // Nom du site
+    /* It's defining the name of the website. */
     define('SITE_NAME', '".trim($_POST['SITE_NAME'])."');
     
-	//Meta
+	/* It's defining the meta description and image of the website. */
     define('CARD_DESCRIPTION', '".trim($_POST['CARD_DESCRIPTION'])."');
     define('CARD_IMAGE', 'https://');");
 
@@ -91,7 +95,7 @@ class Index extends Controller
     </header>
 
     <main>
-        <!-- Generate you files on https://mvc-generator.herokuapp.com/ -->
+        <!-- Generate you files with 'php generate.php help' command -->
     </main>
     <?php
         require APP_ROOT . '/views/inc/footer.php';

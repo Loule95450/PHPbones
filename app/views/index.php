@@ -1,8 +1,10 @@
 <?php
+	/* Including the head.php file in the views/inc folder. */
 	require APP_ROOT . '/views/inc/head.php';
 ?>
 <body>
     <?php
+        /* Including the nav.php file in the views/inc folder. */
         require APP_ROOT . '/views/inc/nav.php';
     ?>
 
@@ -25,6 +27,7 @@
         </form>
     </main>
     <?php
+        /* Including the footer.php file in the views/inc folder. */
         require APP_ROOT . '/views/inc/footer.php';
     ?>
 </body>

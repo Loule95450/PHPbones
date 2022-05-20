@@ -1,4 +1,5 @@
 <?php
+	/* Including the head.php file in the views/inc folder. */
 	require APP_ROOT . '/views/inc/head.php';
 ?>
 <body>

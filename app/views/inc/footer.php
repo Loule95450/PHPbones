@@ -3,5 +3,6 @@
 </footer>
 
 <?php
+    /* Including the script.php file in the footer. */
     require APP_ROOT . '/views/inc/script.php';
 ?>
